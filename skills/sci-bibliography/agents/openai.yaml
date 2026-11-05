@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCI bibliography"
+  short_description: "Audit and normalize BibTeX metadata"
+  default_prompt: "Use $sci-bibliography to audit this manuscript bibliography and propose a complete confirmation table before edits."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCI research workflow"
+  short_description: "Coordinate SCI research tasks with evidence tracking"
+  default_prompt: "Use $sci-research-workflow to plan and coordinate this SCI research task."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCI results analysis"
+  short_description: "Analyze metrics, statistics, ablations, and failures"
+  default_prompt: "Use $sci-results-analysis to inspect results and update evidence files."

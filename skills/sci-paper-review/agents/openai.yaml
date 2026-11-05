@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCI paper review"
+  short_description: "Review evidence, medical imaging reporting and consistency"
+  default_prompt: "Use $sci-paper-review to assess the requested manuscript scope against actual evidence and current clean-source review state, applying CLAIM only when relevant."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCI experiment planning"
+  short_description: "Plan reproducible experiments and baseline reproduction"
+  default_prompt: "Use $sci-experiment-planning to design the experiment plan and acceptance criteria."

@@ -1,0 +1,6 @@
+interface:
+  display_name: "SCI paper writing"
+  short_description: "Write consistent papers and manuscript-based reviewer replies"
+  default_prompt: "Use $sci-paper-writing to infer the LaTeX task, automatically read the canonical review state and relevant saved annotations on every writing round, apply the global kernel and actual top/local comments, and load only the required modules."
+policy:
+  allow_implicit_invocation: true

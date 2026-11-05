@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.validation/
+clean_dir/
+.codex-review/
+.latex-build/
+.env
+.env.*
+Thumbs.db
+.DS_Store

@@ -1,0 +1,4 @@
+interface:
+  display_name: "SCI literature review"
+  short_description: "Search and extract focused paper evidence"
+  default_prompt: "Use $sci-literature-review to search papers and extract the requested information."

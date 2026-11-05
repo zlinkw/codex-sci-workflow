@@ -1,0 +1,6 @@
+interface:
+  display_name: "科研论文阅读"
+  short_description: "新课题理解背景与经典脉络，熟悉课题聚焦概念创新、证据和可迁移思想"
+  default_prompt: "Use $sci-paper-reading to infer my familiarity, read the actual sources and explain the important concepts and evidence without routine module summaries."
+policy:
+  allow_implicit_invocation: true
