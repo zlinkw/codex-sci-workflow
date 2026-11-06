@@ -32,6 +32,8 @@ Start with one mode. Add another only when the actual task needs it; backlinks d
 
 ## Boundaries and handoff
 
+- Obsidian batch recommendations, two-round selection, collection and vault maintenance use `sci-obsidian-reading` when available. That vault's preferences govern venue eligibility and presentation. This skill remains the method-reading engine, not a second library or a Zotero requirement.
+
 - Use `sci-literature-review` for actual discovery, recent/original-source checking and cross-paper literature synthesis, including finding onboarding seeds. Its source/citation rules apply only to that retrieval subtask. One-paper conceptual reading stays here; avoid circular loading between the two.
 - Use `sci-paper-review` for requested formal critique/reviewer simulation, `sci-experiment-planning` for designing a real experiment, and `sci-bibliography` for audited library metadata changes. Idea inspiration is not authorization to run experiments or edit .bib.
 - For requested manuscript/reply drafting use `sci-paper-writing` with its actual rules/state/plans and author-review process. A paper's useful idea is not proof of a user's claim or permission to edit their manuscript.

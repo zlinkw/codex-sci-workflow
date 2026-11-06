@@ -1,0 +1,79 @@
+/* @settings
+name: 论文阅读排版
+id: paper-reading
+settings:
+  - id: paper-page-width
+    title: 图文页最大宽度
+    description: 图表与分栏使用的页面宽度，例如 1280px。
+    type: variable-text
+    default: 1280px
+  - id: paper-text-width
+    title: 普通段落最大宽度
+    description: 不影响框架图和表格，例如 80ch。
+    type: variable-text
+    default: 80ch
+  - id: paper-diagram-height
+    title: 图片默认适屏高度
+    description: 仅控制显示，不裁剪原图，点击图片可放大，例如 72vh。
+    type: variable-text
+    default: 72vh
+  - id: paper-column-width
+    title: 图文分栏最小宽度
+    description: 空间不足时自动改为纵向排列，例如 320px。
+    type: variable-text
+    default: 320px
+  - id: paper-line-height
+    title: 阅读行距
+    type: variable-text
+    default: '1.7'
+*/
+
+:is(.paper-reading, .paper-batch, .paper-library-home) {
+  --file-line-width: var(--paper-page-width, 1280px);
+  --line-height-normal: var(--paper-line-height, 1.7);
+  --callout-min-width: var(--paper-column-width, 320px);
+}
+
+.markdown-preview-view:is(.paper-reading, .paper-batch, .paper-library-home) .markdown-preview-sizer {
+  max-width: var(--paper-page-width, 1280px);
+}
+
+.markdown-preview-view:is(.paper-reading, .paper-batch) .markdown-preview-sizer > .el-p {
+  max-inline-size: var(--paper-text-width, 80ch);
+}
+
+.markdown-preview-view:is(.paper-reading, .paper-batch) img {
+  max-width: 100%;
+  max-height: var(--paper-diagram-height, 72vh);
+  object-fit: contain;
+}
+
+.markdown-preview-view:is(.paper-reading, .paper-batch) table {
+  font-variant-numeric: tabular-nums;
+}
+
+.markdown-preview-view:is(.paper-reading, .paper-batch) .math-block {
+  overflow-x: auto;
+}
+
+.markdown-preview-view h2 { margin-top: 1.8em; }
+
+@media print {
+  /* PDF uses a linear reading order instead of nested flex columns. */
+  .markdown-rendered .callout[data-callout="multi-column"],
+  .markdown-rendered .callout[data-callout="multi-column"] > .callout-content,
+  .markdown-rendered .callout[data-callout="multi-column"] .callout,
+  .markdown-rendered .callout[data-callout="multi-column"] .callout > .callout-content {
+    display: block !important;
+    width: auto !important;
+  }
+  .markdown-rendered .callout[data-callout="multi-column"] .callout {
+    margin-block: 0.75em !important;
+  }
+  .markdown-rendered img { max-height: none !important; object-fit: contain; }
+  .markdown-rendered h1,
+  .markdown-rendered h2,
+  .markdown-rendered h3 { break-after: avoid-page; }
+  .markdown-rendered tr,
+  .markdown-rendered img { break-inside: avoid; }
+}

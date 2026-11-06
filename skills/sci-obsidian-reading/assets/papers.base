@@ -1,0 +1,118 @@
+filters:
+  and:
+  - file.inFolder("论文")
+  - file.ext == "md"
+properties:
+  file.name:
+    displayName: 论文
+  note.venue:
+    displayName: 期刊或会议
+  note.year:
+    displayName: 年份
+  note.quick_index:
+    displayName: 速览编号
+  note.detail_index:
+    displayName: 详细编号
+  note.reading_stage:
+    displayName: 阅读阶段
+  note.expand_requested:
+    displayName: 待展开
+  note.retain_requested:
+    displayName: 待收藏
+  note.venue_basis:
+    displayName: 准入依据
+  note.title:
+    displayName: 论文标题
+views:
+- type: cards
+  name: 速览卡片
+  filters:
+    and:
+    - '!file.hasTag("paper/retained")'
+    - note.venue_eligible == true
+  order:
+  - note.title
+  - file.name
+  - note.quick_index
+  - note.venue
+  - note.year
+  - note.expand_requested
+  image: note.cover
+  imageFit: contain
+  imageAspectRatio: 1.78
+  cardSize: 320
+  sort:
+  - property: note.quick_index
+    direction: ASC
+- type: table
+  name: 待展开
+  filters:
+    and:
+    - note.expand_requested == true
+  order:
+  - note.title
+  - file.name
+  - note.quick_index
+  - note.venue
+  - note.year
+- type: table
+  name: 详细阅读
+  filters:
+    and:
+    - note.reading_stage == "详细"
+  order:
+  - note.title
+  - file.name
+  - note.detail_index
+  - note.quick_index
+  - note.venue
+  - note.retain_requested
+  sort:
+  - property: note.detail_index
+    direction: ASC
+- type: table
+  name: 待收藏
+  filters:
+    and:
+    - note.retain_requested == true
+    - '!file.hasTag("paper/retained")'
+  order:
+  - note.title
+  - file.name
+  - note.detail_index
+  - note.venue
+  - note.year
+- type: cards
+  name: 正式收藏
+  filters:
+    and:
+    - file.hasTag("paper/retained")
+  order:
+  - note.title
+  - file.name
+  - note.venue
+  - note.year
+  - note.topics
+  image: note.cover
+  imageFit: contain
+  imageAspectRatio: 1.78
+  cardSize: 320
+- type: table
+  name: 全部论文
+  order:
+  - note.title
+  - file.name
+  - note.venue
+  - note.year
+  - note.reading_stage
+  - note.venue_basis
+- type: table
+  name: 待核实
+  filters:
+    and:
+    - note.venue_eligible != true
+  order:
+  - note.title
+  - file.name
+  - note.venue
+  - note.venue_basis

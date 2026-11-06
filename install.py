@@ -8,6 +8,7 @@ import shutil
 SKILLS = (
     "sci-research-workflow",
     "sci-paper-reading",
+    "sci-obsidian-reading",
     "sci-literature-review",
     "sci-experiment-planning",
     "sci-results-analysis",
