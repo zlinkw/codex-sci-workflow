@@ -4,7 +4,7 @@ const preset = require('./writing-presets.json');
 const RECOMMENDED = [
     ['james-yu.latex-workshop', 'LaTeX 编译、PDF 与双向跳转'],
     ['tecosaur.latex-utilities', '表格／图片转换粘贴'],
-    ['ltex-plus.vscode-ltex-plus', '英语检查'], ['usernamehw.errorlens', '行内诊断'],
+    ['usernamehw.errorlens', '行内诊断'],
     ['alefragnani.Bookmarks', '书签'], ['Gruntfuggly.todo-tree', '注释导航'],
     ['qmvis.latex-suite-vscode', '数学输入与矩阵快捷操作'], ['yfzhao.ultra-math-preview', '连续公式预览'],
     ['cyndigan.latex-visual-editor', '可选可视化编辑'], ['MS-CEINTL.vscode-language-pack-zh-hans', '可选界面汉化']
@@ -137,7 +137,7 @@ async function activate(context, vscode = require('vscode')) {
                 if (!match || +match[1] !== 3 || +match[2] < 12) throw new Error('审核后端需要 Python 3.12 或更新的 Python 3，请在设置中选择解释器。');
             } else output.appendLine(`${key}：${file}`);
         }
-        output.appendLine('TeX 发行版、LTeX 语言服务器和 GitHub 登录由各自工具管理；本命令不安装软件、不登录、不编译、不操作 Git。');
+        output.appendLine('TeX 发行版和 GitHub 登录由各自工具管理；本命令不安装软件、不登录、不编译、不操作 Git。');
         output.show(true);
     });
     command('localLatex.installRecommended', async () => {

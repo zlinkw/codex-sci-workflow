@@ -25,8 +25,8 @@ New manuscript work uses LaTeX only. Typst material below is compatibility refer
 
 1. Resolve the actual current manuscript and target venue. For LaTeX inspect the entry point, `latexmkrc`, build scripts, bibliography packages, `\bibliographystyle`, bst/bbx/cbx and template examples. For Typst inspect the main `.typ`, imported template functions, actual `bibliography` calls and built-in or custom CSL styles. Do not reuse a historical project path as the current project.
 2. Determine the engine, data format and encoding: BibTeX, biber or Typst/Hayagriva; LaTeX escapes or supported UTF-8. Resolve style overrides before proposing metadata changes.
-3. Resolve all active `\bibliography{...}`, `\addbibresource{...}` or Typst `bibliography(...)` resources, including imported configuration. Read each active `.bib` completely, with macros and cross-reference relationships; handle an existing Hayagriva YAML library in its own format instead of silently converting it.
-4. Audit every loaded library; report inactive resources without editing them. Prefer one existing `.bib` source across LaTeX and Typst when compatible, not independently maintained duplicate libraries.
+3. Resolve the bibliography resources and style needed for the request, including imported macros and cross-reference dependencies. A whole-library audit reads each active library completely. A specific entry/field question inspects that entry and necessary dependencies without expanding into unrelated metadata corrections. Handle an existing Hayagriva YAML library in its own format.
+4. Audit every library in the agreed scope, reporting its coverage and material unavailable dependencies. A full bibliography audit covers all active libraries. Inactive resources remain unchanged. Prefer one existing compatible source rather than duplicate libraries.
 5. Use a structured parser appropriate to the actual format. Preserve nested braces, supported markup, concatenated values, macros and comments. Never run executable TeX to inspect bibliography data or assume arbitrary LaTeX commands work in Typst.
 
 ## LaTeX and Typst citation mechanisms
@@ -69,7 +69,7 @@ Keep a compact venue/style profile in the existing main manuscript's header comm
 ## Mandatory no-edit audit gate
 
 - Do not modify active bibliography, `.tex`, `.typ` or style files during the audit phase, even when a correction appears certain. Read-only style advice and global skill maintenance do not trigger a manuscript-edit request.
-- Complete the entire audit before requesting approval. A general request such as "fix the bibliography" is not approval for changes that have not yet appeared in the audit table.
+- Complete the audit within the requested scope before requesting approval, using one complete table for those mappings. A narrow field question does not require a full-library audit. A general request such as "fix the bibliography" is not approval for mappings that have not yet appeared in the table.
 - Submit one complete mapping table with these columns: citation key, entry type, field, current value, proposed value, necessary explanation, change reason, and status.
 - Represent a missing field as `missing` in the current-value column. Include every proposed addition, deletion, type correction, capitalization change, formatting change, and publication-version replacement.
 - Report duplicate keys, duplicate DOI values, duplicate normalized titles, and likely duplicate publications separately. Do not merge duplicates or rename citation keys.

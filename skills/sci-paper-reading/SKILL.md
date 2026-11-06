@@ -24,8 +24,8 @@ Help this author understand unfamiliar topics and find transferable concepts in 
 | New topic, unfamiliar background/challenges/classics, build a reading order | [topic-onboarding.md](references/topic-onboarding.md) |
 | Familiar topic, read this paper, only innovations, decide whether worth reading | [concept-reading.md](references/concept-reading.md) |
 | Explain a selected equation/figure/experiment in depth | Relevant source plus the needed concept-reading subsection; expand only that target |
-| Read/save notes from Zotero or plan its connection | [zotero-and-maps.md](references/zotero-and-maps.md), only the relevant integration subsection |
-| Compare idea lineages or draw literature relationships | Knowledge-map subsection of [zotero-and-maps.md](references/zotero-and-maps.md), plus inspected papers |
+| Explicitly reintroduce Zotero or request its connection | [zotero-and-maps.md](references/zotero-and-maps.md), only the relevant integration subsection |
+| Compare idea lineages or draw literature relationships | [Obsidian paper relations](../sci-obsidian-reading/references/paper-relations.md) for the selected library, plus inspected papers; optional Zotero guide only when explicitly requested |
 | Skill/tool provenance or current alternatives | [sources-and-mvp.md](references/sources-and-mvp.md) only for setup/research, not every paper |
 
 Start with one mode. Add another only when the actual task needs it; backlinks do not rerun routing or preload all references. Recover current source, author purpose and relevant saved note after context loss; a previous model note does not replace the paper. No fixed daily/background reading job is implied.
@@ -37,6 +37,6 @@ Start with one mode. Add another only when the actual task needs it; backlinks d
 - Use `sci-literature-review` for actual discovery, recent/original-source checking and cross-paper literature synthesis, including finding onboarding seeds. Its source/citation rules apply only to that retrieval subtask. One-paper conceptual reading stays here; avoid circular loading between the two.
 - Use `sci-paper-review` for requested formal critique/reviewer simulation, `sci-experiment-planning` for designing a real experiment, and `sci-bibliography` for audited library metadata changes. Idea inspiration is not authorization to run experiments or edit .bib.
 - For requested manuscript/reply drafting use `sci-paper-writing` with its actual rules/state/plans and author-review process. A paper's useful idea is not proof of a user's claim or permission to edit their manuscript.
-- Do not initialize paper Git, create project Markdown trackers or alter real manuscripts during reading. Saving reading notes is optional and scoped to the chosen reading library, preferably a Zotero child note when authorized. Store only one authoritative note; graph exports are derived views. Never call an unconnected tool integrated or an untested graph correct.
+- Do not initialize paper Git, create project Markdown trackers or alter real manuscripts during reading. Saving reading notes is optional and scoped to the selected Obsidian library, following its existing note and selection rules. Use Zotero only when the user explicitly requests it again. Store only one authoritative note; graph exports are derived views. Never call an unconnected tool integrated or an untested graph correct.
 
 Finish with the main idea, inspected support/uncertainty and the next useful reading choice. Report actual progress and remaining time according to the global guide; do not present format validation as model-behavior proof.

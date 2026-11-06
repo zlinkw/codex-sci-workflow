@@ -6,7 +6,7 @@
 
 在 VS Code 的扩展菜单执行“从 VSIX 安装”，选择发布包。必需的 LaTeX Workshop 使用官方市场版本，不修改第三方扩展。命令面板中的“安装缺少的配套扩展”可选择书签、公式输入、英语检查、可视化编辑、中文语言包等；不会静默安装系统软件或登录账号。
 
-本地需要：Python **3.12 或更新的 Python 3**；TeX Live / TinyTeX / MacTeX 中可用的 latexmk、pdfLaTeX、BibTeX、latexdiff、SyncTeX。缩进功能另需 tex-fmt；私有 GitHub 备份另需 Git 和已登录的 GitHub CLI。语言服务器由 LTeX+ 自行管理，可保留已有离线安装。插件不内置整套 TeX、Python、Java 或用户凭据。
+本地需要：Python **3.12 或更新的 Python 3**；TeX Live / TinyTeX / MacTeX 中可用的 latexmk、pdfLaTeX、BibTeX、latexdiff、SyncTeX。缩进功能另需 tex-fmt；私有 GitHub 备份另需 Git 和已登录的 GitHub CLI。英语语法由作者按需交给 AI 核对，不安装常驻 Java 语法服务。插件不内置整套 TeX、Python、Java 或用户凭据。
 
 Windows 优先复用现有工具设置、PATH 和用户 TinyTeX 安装。Mac 同时查找 `/Library/TeX/texbin`、Homebrew 和用户 TinyTeX 路径；从 Dock 启动时也会把发现的工具目录加入本插件子进程环境。工具路径只在当前机器使用，不随插件发行。缺少工具时执行“检查本地写作环境与跨平台工具”，再在 `localLatex` 设置中指定实际位置。
 
@@ -14,7 +14,7 @@ Windows 优先复用现有工具设置、PATH 和用户 TinyTeX 安装。Mac 同
 
 打开受信任且包含真实 `.tex` 的工作区时，默认自动合并完整论文配置，保留已有明确选择；无 `.tex` 的代码项目和纯 Typst 项目不触发配置。`localLatex.configurationProfile` 可改为 `latex-only` 仅补齐专用项，或 `off` 不自动写设置。编译、引用补全、悬浮预览、PDF 双向跳转、手动缩进、编辑显示等设置来自插件的明确白名单，不复制整份个人 settings.json。
 
-“导入／重新应用论文写作配置”提供完整合并导入、仅补齐 LaTeX 专用项和显式替换冲突项。完整方案还包括书签、LTeX、Error Lens、Todo Tree、PDF 关联、搜索排除和文件嵌套，其中部分属于整个 VS Code 配置的显示偏好，因此已有明确选择不在后台强行覆盖。缺少配套扩展时跳过其未注册设置，安装扩展后重新应用。词典、列表和对象合并保留其他内容；替换冲突项也保留不属于预设的其他文件关联。
+“导入／重新应用论文写作配置”提供完整合并导入、仅补齐 LaTeX 专用项和显式替换冲突项。完整方案还包括书签、Error Lens、Todo Tree、PDF 关联、搜索排除和文件嵌套，其中部分属于整个 VS Code 配置的显示偏好，因此已有明确选择不在后台强行覆盖。缺少配套扩展时跳过其未注册设置，安装扩展后重新应用。词典、列表和对象合并保留其他内容；替换冲突项也保留不属于预设的其他文件关联。
 
 配置原值仅记录在 VS Code 的插件存储中，不在论文项目创建跟踪文件。“恢复本插件修改的配置”只恢复仍等于插件所写值的项目，不覆盖后来手动修改的值。插件快捷键和内置片段通过正式扩展贡献提供，不改写用户 keybindings.json。旧用户级同前缀片段若仍在，可能出现重复建议；旧文件不自动删除。
 

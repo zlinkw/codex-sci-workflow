@@ -19,6 +19,12 @@ test('Chinese menu aliases retain original targets, URI arguments, results and f
     activate({subscriptions: disposables});
     const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
     const definitions = new Map(pkg.contributes.commands.map(x => [x.command, x]));
+    for (const id of definitions.keys()) {
+        if (id.startsWith('localLatex.menu.')) assert(handlers.has(id), 'visible alias has no handler: ' + id);
+    }
+    for (const binding of pkg.contributes.keybindings || []) {
+        if (binding.command.startsWith('localLatex.menu.')) assert(handlers.has(binding.command), 'shortcut has no handler');
+    }
     const uri = {scheme: 'file', fsPath: 'C:/fixture/含空格的稿件.tex'};
     const extra = {position: 12};
     for (const [name, target] of Object.entries(TARGETS)) {

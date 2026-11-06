@@ -1,6 +1,6 @@
 # Zotero and evidence-bearing literature maps
 
-Load only for a Zotero or relationship-map task. Zotero is optional. The current first choice is a small local read/notes workflow and a task-specific derived concept map, not a whole-library graph database. Read the needed subsection only.
+Load the integration/storage sections only when the user explicitly reintroduces Zotero. Default saved notes and maps use the selected Obsidian library and sci-obsidian-reading. The relationship vocabulary below is reusable, but it does not change the chosen storage destination or authorize a second library. Read only the needed subsection.
 
 ## Resolve the connection, do not assume it
 

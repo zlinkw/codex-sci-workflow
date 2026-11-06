@@ -11,14 +11,16 @@ Follow the active global progress/remaining-time, evidence and authorization req
 
 Plan experiments so they can be reproduced, audited, and converted into paper evidence. Resolve the actual project root and documented contract first; a paper-only request does not initialize a research repository or new Markdown trackers.
 
+For actual execution or file transfer, read [execution.md](references/execution.md). For experimental comparisons, replication, result inclusion or statistical design, read [statistical validity](../sci-results-analysis/references/statistical-validity.md). These own shared execution and analysis rules.
+
 ## Planning checklist
 
 Define:
 
 - Goal
 - Hypothesis
-- Dataset and split
-- Baselines
+- Dataset/version and independent split unit, preprocessing fit scope, training/validation/test access and leakage checks
+- Baselines and matched data/pretraining/budget/evaluation conditions, with justified deviations
 - Metrics
 - Config path
 - Command
@@ -27,11 +29,11 @@ Define:
 - Planned job count after expanding cases and seeds; identify serial preparation, parallel branches, and final aggregation
 - Random seed
 - Expected outputs
-- Acceptance criteria
+- Acceptance criteria, primary endpoint, model/threshold selection rule, valid-run inclusion and failure/retry handling
 - Failure risks
 - Evidence files to update
 - Result destinations and publication format from the actual project contract. Use paired `<family>.csv`/`<family>.md` reports and baseline/final/model names only when that project requires them, not as a universal writing rule.
-- In research-managed projects, write official run plans under `experiments/plans/**/*.yaml` with the required config before API validation, dry run and execution. A project's documented `tmp/` draft buffer or promotion approval remains applicable where actually required; it does not replace the official plan location or invent new approval steps.
+- Before applicable validation, dry run or equivalent preflight, and execution, record the official run plan and required config in the project's established format and location, normally `experiments/plans/`. Use YAML when required by the project or selected runner. Preserve a documented draft buffer or promotion approval where actually required, without imposing a new layout or approval step.
 - Reuse existing code, preprocessing entrypoints, configs, and plans; express fine-grained variants through parameters, overrides, or cases. Planning does not authorize cleanup; use the separately applicable exact-scope cleanup rules for a requested cleanup.
 
 ## GPU scheduling and dependent phases
@@ -40,7 +42,7 @@ Define:
 - Draw the dependency boundary explicitly. Shared data preparation, classifier fitting, or candidate selection runs once; independent method branches consume immutable, fingerprinted preparation artifacts; aggregation starts only after all required branches succeed. Use separate phase PLANs when the scheduler has no verified cross-case dependency support. Never assume that adding cases establishes a dependency or that a downstream job can safely read partially written outputs.
 - Give each parallel job its own checkpoint, logs, result files, and writable directory. Share only read-only artifacts and stable inputs. Record input fingerprints, branch identity, seed, split, configuration, and code version; fail on missing, stale, mismatched, or incomplete dependencies. Publish a completion marker only after an artifact set is fully written and checked.
 - Estimate GPU memory with the configured physical batch and actual model variants before scheduling concurrency. A free GPU is not a reason to lower batch size, add gradient accumulation, train unused variants, or duplicate shared work. Document any unavoidable idle phase and the expected number of simultaneous GPU jobs.
-- Require the SimpleExperiment plan validation and dry run before execution. For dependent phases, validate each PLAN and explicitly state their order and expected artifacts. Report observed scheduler concurrency separately from planned job count; if fewer GPUs run than expected, inspect the plugin's worker/GPU assignment rather than inventing extra experimental seeds.
+- Apply the selected runner's validation and supported dry run, or an equivalent non-mutating preflight. For dependent phases, state execution order and required complete artifacts. Report observed concurrency separately from planned jobs; inspect the actual runner's worker/GPU assignment rather than inventing extra seeds.
 
 ## Required experiments for all papers
 
@@ -53,7 +55,7 @@ Before treating any experimental section as complete, check:
 - Limitations, even if brief.
 - Efficiency results when relevant, including inference time, GFLOPs, parameter count, memory use, or throughput.
 
-If any item is missing, record `missing experiment` or `missing analysis` in the existing project evidence record under its actual contract. In a paper-only workspace, use the existing canonical review state or relevant paragraph comments; do not create `paper/claims.md`, `reviews/self-review.md` or another tracker merely to satisfy this checklist. Planning does not establish evidence or authorize execution; use the required SimpleExperiment/SimpleSFTP skills and live APIs for actual runs/transfers.
+If any item is missing, record `missing experiment` or `missing analysis` in the existing project evidence record under its actual contract. In a paper-only workspace, use the existing canonical review state or relevant paragraph comments; do not create `paper/claims.md`, `reviews/self-review.md` or another tracker merely to satisfy this checklist. Planning does not establish evidence or authorize execution; use the general execution guide for actual runs/transfers, loading a plugin guide only when that plugin is selected.
 
 ## Reproduction rules
 

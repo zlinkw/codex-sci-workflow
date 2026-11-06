@@ -23,6 +23,8 @@ properties:
     displayName: 准入依据
   note.title:
     displayName: 论文标题
+  note.batch_id:
+    displayName: 批次
 views:
 - type: cards
   name: 速览卡片
@@ -30,6 +32,9 @@ views:
     and:
     - '!file.hasTag("paper/retained")'
     - note.venue_eligible == true
+    - file("当前批次.md").properties.active_batch != null
+    - file("当前批次.md").properties.active_batch != ""
+    - note.batch_id == file("当前批次.md").properties.active_batch
   order:
   - note.title
   - file.name
@@ -49,6 +54,9 @@ views:
   filters:
     and:
     - note.expand_requested == true
+    - file("当前批次.md").properties.active_batch != null
+    - file("当前批次.md").properties.active_batch != ""
+    - note.batch_id == file("当前批次.md").properties.active_batch
   order:
   - note.title
   - file.name
@@ -60,6 +68,9 @@ views:
   filters:
     and:
     - note.reading_stage == "详细"
+    - file("当前批次.md").properties.active_batch != null
+    - file("当前批次.md").properties.active_batch != ""
+    - note.batch_id == file("当前批次.md").properties.active_batch
   order:
   - note.title
   - file.name
@@ -76,6 +87,9 @@ views:
     and:
     - note.retain_requested == true
     - '!file.hasTag("paper/retained")'
+    - file("当前批次.md").properties.active_batch != null
+    - file("当前批次.md").properties.active_batch != ""
+    - note.batch_id == file("当前批次.md").properties.active_batch
   order:
   - note.title
   - file.name
@@ -106,6 +120,7 @@ views:
   - note.year
   - note.reading_stage
   - note.venue_basis
+  - note.batch_id
 - type: table
   name: 待核实
   filters:

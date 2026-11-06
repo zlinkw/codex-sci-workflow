@@ -86,11 +86,11 @@ python3 codex-sci-workflow/install.py --skill sci-obsidian-reading sci-paper-rea
 
 首次使用时提供自己的 Obsidian 库目录。公开版本的 `references/local-vault.md` 不预设作者电脑路径。技能附带论文和批次模板、Bases 视图及阅读 CSS，不包含私人笔记、PDF、插件二进制或整套 Obsidian 库。
 
-需要配置应用时，按相应指南使用 BibLib 与 PDF++，并可选用 Style Settings、Image Lens、Hover Editor、Better Export PDF 和 MCL CSS。安装技能本身不会自动安装插件。自动提图工具单独适配，不能把未连接的工具当作已经可用。
+需要配置应用时，按相应指南使用 BibLib 与 PDF++，可选 Style Settings、Image Lens、Hover Editor 和 Better Export PDF。默认全宽单栏、框架图在说明上方，图片支持单击放大，保留用户库内后续偏好。当前批次视图读取 `当前批次.md` 的 `active_batch`，历史资料与正式收藏保留全库范围。安装技能不会自动安装插件。原图优先复用已有提图工具，必要时可使用已安装 PDF 工具提取真实原图，不重绘科研图。
 
 ## 工作原则与写作偏好
 
-- 实验结论需要项目运行记录、结果表或 claims 证据支持，不能编造结果、引用或实现细节。
+- 实验结论需要项目运行记录、结果表或 claims 证据支持，不能编造结果、引用或实现细节。有效但不理想的结果不得按性能排除，失败、重试与统计单位须可追溯。
 - 优先修改已有内容，非必要不增加篇幅。复用原稿术语，不为回复审稿人另造名称。
 - 有准确的过程、模块或模型主语时优先使用，但不全面禁止第一人称。
 - 每条回复首句感谢，以实际修改后的内容为依据，统筹处理完整审稿问题及关联修改。
@@ -108,7 +108,7 @@ python3 codex-sci-workflow/install.py --skill sci-obsidian-reading sci-paper-rea
 | LaTeX 编译及最终 PDF | 本机 LaTeX 工具链，例如 TeX Live/TinyTeX 和 latexmk |
 | 配套 Python 审核工具 | Python 3.12+。依具体命令的帮助和引用文档运行 |
 | 原文件审核卡片及完整审核 PDF | 与文档协议匹配的 TeXScholar 本地扩展及相关 LaTeX 工具。安装技能本身不会安装或启用扩展 |
-| 正式实验与远程传输 | 项目要求的实验和传输服务。部分指南引用 SimpleExperiment/SimpleSFTP，它们不包含在本仓库，不因安装技能而自动可用 |
+| 正式实验与远程传输 | 已核实的项目脚本、CLI、调度器、SSH/tmux、SFTP/scp/rsync 或 API。遵循通用执行与证据规范，不要求指定插件。SimpleExperiment/SimpleSFTP 仅为可选工具，不包含在本仓库 |
 | Git 成果备份 | Git、有效的远端和项目授权。Git 不是普通写作的前提 |
 
 `sci-paper-writing/assets/vscode-local-latex/` 和旧打包脚本是技能随附的历史审核组件源码，保留依赖完整性，不代表当前 TeXScholar 发行版。安装器只复制技能，不构建或安装 VSIX。进阶操作需要先核对实际工具版本和能力。

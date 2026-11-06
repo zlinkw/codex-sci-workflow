@@ -9,14 +9,14 @@ Follow the active global progress/remaining-time, evidence and authorization req
 
 # SCI Results Analysis
 
-Convert raw experiment outputs into defensible evidence.
+Convert raw experiment outputs into defensible evidence. Read [statistical validity](references/statistical-validity.md) for the affected run-inclusion, comparison, aggregation or inference question. That file is the shared authority for planning and result writing, not a requirement to run every analysis for a narrow request.
 
 ## Analysis workflow
 
 1. Resolve the actual project contract, then locate existing logs, tables, configs, seeds, datasets, and checkpoints. Reuse known endpoints and comparisons; ask only about genuinely unresolved analysis scope.
-2. Check that runs are comparable.
+2. Reconcile planned and observed runs, valid/invalid/missing attempts and retry identities, then check comparison conditions. Preserve valid unfavorable results and explain any exclusion.
 3. Compute or verify summary metrics.
-4. Report mean and standard deviation when repeated runs, folds, or cases exist.
+4. State the independent unit and aggregation level before reporting summaries, variability or uncertainty. Do not combine patients, seeds and folds as interchangeable repeats.
 5. Run or recommend statistical tests for key comparisons.
 6. Inspect ablations and sensitivity analysis.
 7. Check efficiency values such as inference time, GFLOPs, parameters, memory, and throughput.

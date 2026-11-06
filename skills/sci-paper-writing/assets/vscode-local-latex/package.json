@@ -61,11 +61,6 @@
         "category": "LaTeX"
       },
       {
-        "command": "localLatex.menu.grammar",
-        "title": "检查当前文档的英语拼写与语法",
-        "category": "LaTeX"
-      },
-      {
         "command": "localLatex.menu.formattedPaste",
         "title": "粘贴并转换为 LaTeX（表格或图片）",
         "category": "LaTeX"
@@ -532,11 +527,6 @@
           "group": "1_checks@10"
         },
         {
-          "command": "localLatex.menu.grammar",
-          "when": "resourceScheme == file && editorLangId == latex",
-          "group": "1_checks@20"
-        },
-        {
           "command": "localLatex.checkUnusedCitations",
           "when": "resourceScheme == file && editorLangId == latex && isWorkspaceTrusted",
           "group": "2_references@10"
@@ -715,12 +705,6 @@
         "command": "localLatex.menu.wordcount",
         "when": "editorTextFocus && resourceScheme == file && editorLangId == latex",
         "mac": "cmd+alt+w"
-      },
-      {
-        "key": "ctrl+alt+g",
-        "command": "localLatex.menu.grammar",
-        "when": "editorTextFocus && resourceScheme == file && editorLangId == latex",
-        "mac": "cmd+alt+g"
       },
       {
         "key": "ctrl+shift+v",

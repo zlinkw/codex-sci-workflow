@@ -4,19 +4,19 @@ id: paper-reading
 settings:
   - id: paper-page-width
     title: 图文页最大宽度
-    description: 图表与分栏使用的页面宽度，例如 1280px。
+    description: 默认铺满编辑区，仅保留两侧页边距。
     type: variable-text
-    default: 1280px
+    default: 100%
   - id: paper-text-width
     title: 普通段落最大宽度
-    description: 不影响框架图和表格，例如 80ch。
+    description: 默认与页面同宽，避免窄列导致段落过长。
     type: variable-text
-    default: 80ch
+    default: 100%
   - id: paper-diagram-height
     title: 图片默认适屏高度
-    description: 仅控制显示，不裁剪原图，点击图片可放大，例如 72vh。
+    description: 默认不限制图片高度，单击图片可放大查看。
     type: variable-text
-    default: 72vh
+    default: none
   - id: paper-column-width
     title: 图文分栏最小宽度
     description: 空间不足时自动改为纵向排列，例如 320px。
@@ -29,23 +29,54 @@ settings:
 */
 
 :is(.paper-reading, .paper-batch, .paper-library-home) {
-  --file-line-width: var(--paper-page-width, 1280px);
+  --file-line-width: var(--paper-page-width, 100%);
+  --file-margins: 24px 32px;
   --line-height-normal: var(--paper-line-height, 1.7);
   --callout-min-width: var(--paper-column-width, 320px);
 }
 
 .markdown-preview-view:is(.paper-reading, .paper-batch, .paper-library-home) .markdown-preview-sizer {
-  max-width: var(--paper-page-width, 1280px);
+  width: 100%;
+  max-width: var(--paper-page-width, 100%);
+}
+
+.markdown-source-view:is(.paper-reading, .paper-batch, .paper-library-home) .cm-sizer {
+  max-width: var(--paper-page-width, 100%);
 }
 
 .markdown-preview-view:is(.paper-reading, .paper-batch) .markdown-preview-sizer > .el-p {
-  max-inline-size: var(--paper-text-width, 80ch);
+  max-inline-size: var(--paper-text-width, 100%);
 }
 
 .markdown-preview-view:is(.paper-reading, .paper-batch) img {
   max-width: 100%;
-  max-height: var(--paper-diagram-height, 72vh);
+  max-height: var(--paper-diagram-height, none);
   object-fit: contain;
+}
+
+/* Keep the complete diagram above its explanation, including in live preview. */
+:is(.paper-reading, .paper-batch) .callout[data-callout="multi-column"] {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+:is(.paper-reading, .paper-batch) .callout[data-callout="multi-column"] > .callout-title {
+  display: none;
+}
+
+:is(.paper-reading, .paper-batch) .callout[data-callout="multi-column"] > .callout-content {
+  display: block !important;
+}
+
+:is(.paper-reading, .paper-batch) .callout[data-callout="multi-column"] > .callout-content > .callout {
+  width: 100%;
+  margin-inline: 0;
+}
+
+:is(.paper-reading, .paper-batch) .image-embed img {
+  width: 100%;
+  height: auto;
 }
 
 .markdown-preview-view:is(.paper-reading, .paper-batch) table {

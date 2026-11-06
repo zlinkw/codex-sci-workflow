@@ -36,7 +36,7 @@ Choose the smallest suitable mode:
 1. Define the question, artifact, acceptance criteria, and evidence needed.
 2. Make scoped code or paper edits with Codex.
 3. Run or specify the relevant verification.
-4. Preserve meaningful official run artifacts in the project's documented `experiments/runs/` structure through its required APIs; do not impose a parallel handwritten Markdown run log.
+4. Preserve meaningful official run artifacts in the project's documented `experiments/runs/` structure through its selected execution tools; do not impose a parallel handwritten Markdown run log.
 5. Update the existing comparable-metric record, such as `experiments/results.csv`, under the actual project schema.
 6. Update the existing evidence/claim record, such as `paper/claims.md`, with supported, weakened, refuted, or missing claims; create no empty records just to follow this sequence.
 7. Review unsupported claims, missing experiments, leakage risks, and style issues.
@@ -45,7 +45,7 @@ Choose the smallest suitable mode:
 
 - Determine the current project's source-of-truth workspace, execution environment, and transfer route from its own documentation and user instructions. Never inherit a donor-machine host or path.
 - Before an upload or run, verify the exact host, local source, canonical remote project root, destination, and authorization. Missing or conflicting values stop the operation.
-- Use the project's required experiment and transfer APIs. Complete required plan validation, dry run, and confirmation before a live run; do not bypass them with direct SSH or standalone scripts.
+- Use [the general execution guide](../sci-experiment-planning/references/execution.md) for actual runs/transfers. Select suitable existing scripts, CLI, schedulers, SSH/tmux or APIs. Apply the same plan, preflight, authorization and evidence checks without mandating a plugin.
 - Transfer only stable, scoped files. Never upload secrets, credentials, private keys, environments, caches, checkpoints, or large generated artifacts without explicit need and authorization.
 
 ## Research discipline
@@ -63,6 +63,6 @@ Choose the smallest suitable mode:
 
 This coordinator chooses task scopes; it does not replace narrow scientific skills. Actual manuscript/reply drafting, polishing, logic planning, annotations or acceptance automatically loads `sci-paper-writing` and its global/top/local/state gates, even inside this larger pipeline. Necessary manuscript changes precede replies; supported reply-only clarification does not fabricate manuscript edits. Author decisions, evidence and issue closure remain distinct. Use one canonical review state, not a coordinator mirror.
 
-Route user-focused paper reading/topic onboarding to `sci-paper-reading`, bibliography audits to the canonical `sci-bibliography`, actual discovery/support extraction to `sci-literature-review`, results analysis to `sci-results-analysis`, experiment design to `sci-experiment-planning`, and formal critique to `sci-paper-review`. Load only the current phase and genuine dependencies; this is instruction routing, not delegation to another AI. Experiment/API and project-contract requirements remain unchanged.
+Route user-focused paper reading/topic onboarding to `sci-paper-reading`, bibliography audits to the canonical `sci-bibliography`, actual discovery/support extraction to `sci-literature-review`, results analysis to `sci-results-analysis`, experiment design to `sci-experiment-planning`, and formal critique to `sci-paper-review`. Load only the current phase and genuine dependencies; this is instruction routing, not delegation to another AI. General execution, evidence and actual project-contract requirements remain applicable.
 
 The run/results/claims files above belong to an existing research-managed repository under its actual contract. A local paper-only workspace does not acquire new Markdown trackers or an empty evidence pipeline. Keep its global agreements in top comments and local logic before the corresponding prose. For review archive or explicit submission, use the writing skill's conditional module; ordinary Git push is not review-chain backup and submission preparation does not authorize upload.
