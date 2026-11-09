@@ -27,7 +27,7 @@ Define:
 - Hardware
 - Available GPU count, memory per GPU, expected GPU memory per job, and the maximum safe concurrent job count
 - Planned job count after expanding cases and seeds; identify serial preparation, parallel branches, and final aggregation
-- Random seed
+- Experiment purpose, user-confirmed single-seed or three-seed mode, actual seed values and covered experiments, following [seed selection and launch confirmation](references/execution.md#seed-数量与启动确认). Effect checks use one seed and final paper results use three distinct seeds. Obtain the user's choice before launching a new experiment or explicitly listed batch.
 - Expected outputs
 - Acceptance criteria, primary endpoint, model/threshold selection rule, valid-run inclusion and failure/retry handling
 - Failure risks
